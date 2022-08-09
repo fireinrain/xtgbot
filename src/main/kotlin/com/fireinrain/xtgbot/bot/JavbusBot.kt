@@ -1,5 +1,6 @@
-package com.fireinrain.xtgbot
+package com.fireinrain.xtgbot.bot
 
+import com.fireinrain.xtgbot.config.XtgBotConfig
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.telegram.telegrambots.bots.DefaultBotOptions
@@ -40,20 +41,6 @@ class JavbusBot(options: DefaultBotOptions?) : TelegramLongPollingBot(options) {
     companion object {
         @JvmStatic
         val logger: Logger = LoggerFactory.getLogger(Companion::class.java)
-
-        @JvmStatic
-        fun main(args: Array<String>) {
-            val defaultBotOptions = DefaultBotOptions()
-            defaultBotOptions.proxyHost = XtgBotConfig.getConfig("ProxyHost")
-            defaultBotOptions.proxyPort = XtgBotConfig.getConfig("ProxyPort").toInt()
-            defaultBotOptions.proxyType = DefaultBotOptions.ProxyType.HTTP
-
-            val telegramBotsApi = TelegramBotsApi(DefaultBotSession::class.java)
-            telegramBotsApi.registerBot(JavbusBot(defaultBotOptions))
-            logger.info("----------------- start xtgbot -----------------")
-        }
-
-
     }
 }
 

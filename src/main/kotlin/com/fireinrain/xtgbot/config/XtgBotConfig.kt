@@ -1,4 +1,4 @@
-package com.fireinrain.xtgbot
+package com.fireinrain.xtgbot.config
 
 import java.io.FileReader
 import java.util.*
