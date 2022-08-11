@@ -30,6 +30,7 @@ class SearchJob {
             }
             deferred
         }
+        println(result)
 
         return result
     }
