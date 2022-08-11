@@ -1,16 +1,8 @@
 package com.fireinrain.xtgbot.crawler
 
-import com.fireinrain.xtgbot.config.XtgBotConfig
-import com.fireinrain.xtgbot.entity.SearchResult
 import com.fireinrain.xtgbot.entity.StarIntro
 import kotlinx.coroutines.*
-import okhttp3.ConnectionPool
-import okhttp3.OkHttpClient
 import okhttp3.Request
-import java.net.InetSocketAddress
-import java.net.Proxy
-import java.net.SocketAddress
-import java.util.concurrent.TimeUnit
 
 /**
 @Description: 搜索
@@ -21,15 +13,7 @@ import java.util.concurrent.TimeUnit
 @Time    : 2022/8/10 3:40 AM
  */
 
-class SearchJob {
-    val okHttpClient = OkHttpClient.Builder().readTimeout(10, TimeUnit.SECONDS).retryOnConnectionFailure(false)
-        .connectTimeout(5, TimeUnit.SECONDS).connectionPool(ConnectionPool(10, 10, TimeUnit.SECONDS)).proxy(
-            Proxy(
-                Proxy.Type.HTTP,
-                InetSocketAddress(XtgBotConfig.getConfig("ProxyHost"), XtgBotConfig.getConfig("ProxyPort").toInt())
-            )
-        ).build()
-
+class SearchJob : AbstractJob() {
     suspend fun query(query: String, queryType: Int): Deferred<List<StarIntro>> {
         val result = withContext(Dispatchers.IO) {
             val deferred = async {
