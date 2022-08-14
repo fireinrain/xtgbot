@@ -18,6 +18,5 @@ data class StarIntro(
     var isCensor: String = "",
     // 演员的个人作品主页
     var starPageUrl: String = "",
-    // 下一个页面的url 当没有下一页后 设置为 ""
-    var nextFetchPageUrl: String? = null
+
 ) : SearchResult

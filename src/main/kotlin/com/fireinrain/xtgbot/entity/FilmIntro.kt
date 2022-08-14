@@ -22,6 +22,9 @@ data class FilmIntro(
     var publishDate: String = "",
     // 作品详情页面url
     var filmDetailUrl: String = "",
-    // 下一页 当没有下一页后 设置为 ""
-    var nextFetchPageUrl: String? = null
+    // 几天前新种
+    var lastTorrentUpdate: String = "",
+    // 字幕
+    var subtitle: String = "",
+
 ) : SearchResult
