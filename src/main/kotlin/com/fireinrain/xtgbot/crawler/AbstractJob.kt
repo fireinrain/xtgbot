@@ -20,7 +20,6 @@ import java.util.concurrent.TimeUnit
 
 abstract class AbstractJob {
 
-
     val okHttpClient = OkHttpClient.Builder().readTimeout(10, TimeUnit.SECONDS).retryOnConnectionFailure(false)
         .connectTimeout(5, TimeUnit.SECONDS).connectionPool(ConnectionPool(10, 10, TimeUnit.SECONDS)).proxy(
             Proxy(
