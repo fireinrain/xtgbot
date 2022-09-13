@@ -20,6 +20,7 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession
 
 
 class JavbusBot(options: DefaultBotOptions?) : TelegramLongPollingBot(options) {
+    private val logger = LoggerFactory.getLogger(JavbusBot::class.java)
 
     override fun getBotToken(): String {
         return XtgBotConfig.getConfig("TelegramToken")
@@ -38,10 +39,6 @@ class JavbusBot(options: DefaultBotOptions?) : TelegramLongPollingBot(options) {
 
     }
 
-    companion object {
-        @JvmStatic
-        val logger: Logger = LoggerFactory.getLogger(Companion::class.java)
-    }
 }
 
 

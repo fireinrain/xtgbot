@@ -83,7 +83,7 @@ class SearchJob : AbstractJob() {
             }
             deferred
         }
-
+       logger.info("已获取结果......")
         return result
     }
 
